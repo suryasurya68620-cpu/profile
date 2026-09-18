@@ -1,352 +1,737 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal portfolio of Surya A - B.Tech Information Technology Student">
     <title>Surya A | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f8fc;
+            color: #111827;
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        nav {
+            width: 90%;
+            max-width: 1100px;
+            height: 70px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: #5b5cf0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: #374151;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #5b5cf0;
+        }
+
+        .menu-btn {
+            display: none;
+            border: none;
+            background: transparent;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 90vh;
+            padding: 90px 7%;
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: 60px;
+            align-items: center;
+            background: linear-gradient(135deg, #ffffff, #eef0ff);
+        }
+
+        .tag {
+            color: #5b5cf0;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 7vw, 80px);
+            line-height: 1.05;
+            margin: 18px 0;
+            letter-spacing: -3px;
+        }
+
+        .hero h1 span {
+            color: #5b5cf0;
+        }
+
+        .hero-description {
+            max-width: 650px;
+            color: #667085;
+            font-size: 18px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 13px 24px;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #5b5cf0;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #4546c9;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: white;
+            border: 1px solid #e5e7eb;
+        }
+
+        .btn-secondary:hover {
+            color: #5b5cf0;
+            border-color: #5b5cf0;
+        }
+
+        /* Profile */
+        .profile {
+            background: white;
+            padding: 35px 25px;
+            text-align: center;
+            border-radius: 20px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            margin: auto auto 20px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: #eef0ff;
+            color: #5b5cf0;
+            font-size: 40px;
+            font-weight: 800;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(91, 92, 240, 0.15);
+        }
+
+        .profile h2 {
+            font-size: 25px;
+        }
+
+        .profile > p {
+            color: #667085;
+        }
+
+        .facts {
+            margin-top: 20px;
+            display: grid;
+            gap: 10px;
+            text-align: left;
+            font-size: 14px;
+            color: #4b5563;
+        }
+
+        /* Sections */
+        section:not(.hero) {
+            padding: 90px 7%;
+        }
+
+        section h2 {
+            font-size: 40px;
+            margin: 5px 0 30px;
+            letter-spacing: -1px;
+        }
+
+        .gray {
+            background: #eef0f5;
+        }
+
+        .card {
+            background: white;
+            max-width: 900px;
+            padding: 30px;
+            border-radius: 18px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .card p {
+            color: #667085;
+        }
+
+        .card p + p {
+            margin-top: 12px;
+        }
+
+        .card h3 {
+            margin-bottom: 7px;
+        }
+
+        /* Skills */
+        .skills {
+            max-width: 1000px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-icon {
+            width: 50px;
+            height: 50px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 18px;
+            border-radius: 12px;
+            background: #eef0ff;
+            color: #5b5cf0;
+            font-weight: bold;
+        }
+
+        /* Projects */
+        .project-card {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .project-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        /* Contact */
+        .contact-grid {
+            max-width: 900px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-4px);
+            border-color: #c8caff;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            display: grid;
+            place-items: center;
+            border-radius: 12px;
+            background: #eef0ff;
+            font-size: 22px;
+        }
+
+        .contact-info small {
+            display: block;
+            color: #667085;
+        }
+
+        .contact-info strong {
+            font-size: 14px;
+            word-break: break-word;
+        }
+
+        /* Footer */
+        footer {
+            background: #111827;
+            color: #d1d5db;
+            text-align: center;
+            padding: 25px;
+            font-size: 14px;
+        }
+
+        footer span {
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Mobile */
+        @media (max-width: 750px) {
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 20px 7%;
+                flex-direction: column;
+                gap: 15px;
+                border-bottom: 1px solid #e5e7eb;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 70px 7%;
+            }
+
+            .hero h1 {
+                font-size: 50px;
+            }
+
+            .skills,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section:not(.hero) {
+                padding: 65px 7%;
+            }
+
+            section h2 {
+                font-size: 32px;
+            }
+
+            .buttons {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<header>
-    <nav>
-        <h2>Surya<span>.</span></h2>
+    <!-- NAVIGATION -->
+    <header>
+        <nav>
+            <a href="#home" class="logo">Surya<span>.</span></a>
 
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#education">Education</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
-</header>
+            <button class="menu-btn" id="menuBtn">☰</button>
 
-<section id="home" class="hero">
-    <div>
-        <p>B.TECH INFORMATION TECHNOLOGY • 3RD YEAR</p>
-        <h1>Hi, I'm <span>Surya A</span></h1>
+            <div class="nav-links" id="navLinks">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#education">Education</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
 
-        <p class="description">
-            An enthusiastic Information Technology student focused on
-            developing programming skills and gaining practical experience.
-        </p>
 
-        <a class="button" href="#contact">Contact Me</a>
-    </div>
+    <!-- HOME -->
+    <section class="hero" id="home">
 
-    <div class="profile">
-        <div class="avatar">SA</div>
-        <h2>Surya A</h2>
-        <p>Information Technology Student</p>
-        <p>🎓 3rd Year B.Tech</p>
-        <p>💻 C Programming</p>
-        <p>📍 Trichy, Tamil Nadu</p>
-    </div>
-</section>
+        <div>
+            <p class="tag">B.TECH INFORMATION TECHNOLOGY • 3RD YEAR</p>
 
-<section id="about">
-    <p class="tag">ABOUT ME</p>
-    <h2>About Me</h2>
+            <h1>
+                Hi, I'm <span>Surya A</span>
+            </h1>
 
-    <div class="card">
-        <p>
-            I am Surya A, a third-year B.Tech Information Technology student
-            at Dhanalakshmi Srinivasan University, Samayapuram, Trichy.
-        </p>
+            <p class="hero-description">
+                An enthusiastic Information Technology student focused on
+                developing programming skills, learning new technologies,
+                and gaining practical experience.
+            </p>
 
-        <p>
-            I am interested in strengthening my programming knowledge,
-            learning new technologies and developing practical skills
-            for my future career.
-        </p>
-    </div>
-</section>
+            <div class="buttons">
+                <a href="#contact" class="btn btn-primary">
+                    Contact Me
+                </a>
 
-<section id="education" class="gray">
-    <p class="tag">EDUCATION</p>
-    <h2>Academic Journey</h2>
-
-    <div class="card">
-        <h3>B.Tech – Information Technology</h3>
-        <p>Dhanalakshmi Srinivasan University</p>
-        <p>Samayapuram, Trichy – 621 112</p>
-        <strong>Currently studying – 3rd Year</strong>
-    </div>
-</section>
-
-<section id="skills">
-    <p class="tag">SKILLS</p>
-    <h2>Technical Skills</h2>
-
-    <div class="skills">
-        <div class="card">
-            <h3>💻 C Programming</h3>
-            <p>Programming fundamentals and problem-solving basics.</p>
+                <a href="#skills" class="btn btn-secondary">
+                    View Skills
+                </a>
+            </div>
         </div>
 
-        <div class="card">
-            <h3>⚙️ Programming Fundamentals</h3>
-            <p>Basic logical thinking and coding concepts.</p>
+
+        <div class="profile">
+
+            <div class="avatar">
+                SA
+            </div>
+
+            <h2>Surya A</h2>
+
+            <p>
+                Information Technology Student
+            </p>
+
+            <div class="facts">
+                <span>🎓 3rd Year B.Tech</span>
+                <span>💻 C Programming</span>
+                <span>📍 Trichy, Tamil Nadu</span>
+            </div>
+
         </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+
+        <p class="tag">ABOUT ME</p>
+
+        <h2>
+            A Student With A Passion For Technology
+        </h2>
 
         <div class="card">
-            <h3>🌐 English</h3>
-            <p>Communication and professional learning.</p>
+
+            <p>
+                I am Surya A, a third-year B.Tech Information Technology
+                student at Dhanalakshmi Srinivasan University,
+                Samayapuram, Trichy.
+            </p>
+
+            <p>
+                I am interested in strengthening my programming knowledge,
+                learning new technologies, and developing practical skills
+                that can support my future career.
+            </p>
+
         </div>
-    </div>
-</section>
 
-<section id="projects" class="gray">
-    <p class="tag">PROJECTS</p>
-    <h2>Projects & Experience</h2>
+    </section>
 
-    <div class="card center">
-        <h3>Projects Coming Soon</h3>
-        <p>
-            Academic and personal projects can be added here
-            as you build them.
-        </p>
-    </div>
 
-    <div class="card">
-        <h3>Internship Experience</h3>
-        <p>No internship experience listed yet.</p>
-    </div>
-</section>
+    <!-- EDUCATION -->
+    <section id="education" class="gray">
 
-<section>
-    <p class="tag">CAREER GOAL</p>
-    <h2>Learning Today, Building Tomorrow.</h2>
+        <p class="tag">EDUCATION</p>
 
-    <div class="card">
-        <p>
-            My goal is to continuously improve my technical skills,
-            gain practical exposure, contribute to real-world projects,
-            and prepare for a successful career in Information Technology.
-        </p>
-    </div>
-</section>
+        <h2>
+            Academic Journey
+        </h2>
 
-<section id="contact">
-    <p class="tag">CONTACT</p>
-    <h2>Let's Connect</h2>
+        <div class="card">
 
-    <div class="skills">
-        <a class="card contact" href="tel:8148577248">
-            📞 <strong>8148577248</strong>
-        </a>
+            <p class="tag">CURRENT</p>
 
-        <a class="card contact"
-           href="mailto:Suryasurya68620@gmail.com">
-            ✉️ <strong>Suryasurya68620@gmail.com</strong>
-        </a>
-    </div>
-</section>
+            <h3>
+                B.Tech – Information Technology
+            </h3>
 
-<footer>
-    © <span id="year"></span> Surya A
-</footer>
+            <p>
+                Dhanalakshmi Srinivasan University
+            </p>
 
-<script src="script.js"></script>
+            <p>
+                Samayapuram, Trichy – 621 112
+            </p>
+
+            <br>
+
+            <strong>
+                Currently Studying – 3rd Year
+            </strong>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+    <section id="skills">
+
+        <p class="tag">SKILLS</p>
+
+        <h2>
+            Technical Skills
+        </h2>
+
+        <div class="skills">
+
+            <div class="card">
+
+                <div class="skill-icon">
+                    &lt;/&gt;
+                </div>
+
+                <h3>
+                    C Programming
+                </h3>
+
+                <p>
+                    Programming fundamentals and basic
+                    problem-solving concepts.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="skill-icon">
+                    ⚙
+                </div>
+
+                <h3>
+                    Programming Fundamentals
+                </h3>
+
+                <p>
+                    Developing logical thinking and
+                    coding fundamentals.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="skill-icon">
+                    EN
+                </div>
+
+                <h3>
+                    English
+                </h3>
+
+                <p>
+                    Communication and professional
+                    learning skills.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section id="projects" class="gray">
+
+        <p class="tag">PROJECTS & EXPERIENCE</p>
+
+        <h2>
+            Projects & Experience
+        </h2>
+
+        <div class="card project-card">
+
+            <div class="project-icon">
+                🚀
+            </div>
+
+            <h3>
+                Projects Coming Soon
+            </h3>
+
+            <p>
+                Academic and personal projects can be added
+                here as you build them.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                Internship Experience
+            </h3>
+
+            <p>
+                No internship experience listed yet.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- CAREER GOAL -->
+    <section>
+
+        <p class="tag">CAREER GOAL</p>
+
+        <h2>
+            Learning Today, Building Tomorrow.
+        </h2>
+
+        <div class="card">
+
+            <p>
+                My goal is to continuously improve my technical
+                skills, gain practical exposure, contribute to
+                real-world projects, and prepare for a successful
+                career in Information Technology.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact">
+
+        <p class="tag">CONTACT</p>
+
+        <h2>
+            Let's Connect
+        </h2>
+
+        <div class="contact-grid">
+
+            <a
+                class="card contact-card"
+                href="tel:8148577248"
+            >
+
+                <div class="contact-icon">
+                    📞
+                </div>
+
+                <div class="contact-info">
+                    <small>Phone</small>
+                    <strong>8148577248</strong>
+                </div>
+
+            </a>
+
+
+            <a
+                class="card contact-card"
+                href="mailto:Suryasurya68620@gmail.com"
+            >
+
+                <div class="contact-icon">
+                    ✉️
+                </div>
+
+                <div class="contact-info">
+                    <small>Email</small>
+                    <strong>
+                        Suryasurya68620@gmail.com
+                    </strong>
+                </div>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        © <span id="year"></span> Surya A.
+        All Rights Reserved.
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        menuBtn.addEventListener("click", function () {
+
+            navLinks.classList.toggle("active");
+
+            if (navLinks.classList.contains("active")) {
+                menuBtn.textContent = "✕";
+            } else {
+                menuBtn.textContent = "☰";
+            }
+
+        });
+
+
+        document.querySelectorAll(".nav-links a").forEach(function(link) {
+
+            link.addEventListener("click", function() {
+
+                navLinks.classList.remove("active");
+
+                menuBtn.textContent = "☰";
+
+            });
+
+        });
+
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+    </script>
+
 </body>
 </html>
-""",
-
-    "style.css": """* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background: #f7f8fc;
-    color: #111827;
-    line-height: 1.7;
-}
-
-header {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: white;
-    border-bottom: 1px solid #e5e7eb;
-}
-
-nav {
-    width: 90%;
-    max-width: 1100px;
-    height: 70px;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-nav h2 {
-    font-size: 28px;
-}
-
-nav h2 span,
-.tag,
-.hero span {
-    color: #5b5cf0;
-}
-
-.nav-links {
-    display: flex;
-    gap: 25px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #374151;
-    font-weight: bold;
-}
-
-.nav-links a:hover {
-    color: #5b5cf0;
-}
-
-.hero {
-    min-height: 90vh;
-    padding: 90px 7%;
-    display: grid;
-    grid-template-columns: 1.4fr .6fr;
-    gap: 60px;
-    align-items: center;
-    background: linear-gradient(135deg, white, #eef0ff);
-}
-
-.hero h1 {
-    font-size: clamp(45px, 7vw, 80px);
-    line-height: 1.1;
-    margin: 15px 0;
-}
-
-.description {
-    max-width: 650px;
-    color: #667085;
-    font-size: 18px;
-}
-
-.button {
-    display: inline-block;
-    margin-top: 25px;
-    padding: 13px 24px;
-    background: #5b5cf0;
-    color: white;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.profile,
-.card {
-    background: white;
-    padding: 30px;
-    border-radius: 18px;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 15px 40px rgba(0,0,0,.06);
-}
-
-.profile {
-    text-align: center;
-}
-
-.avatar {
-    width: 110px;
-    height: 110px;
-    margin: auto auto 20px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    background: #eef0ff;
-    color: #5b5cf0;
-    font-size: 35px;
-    font-weight: bold;
-}
-
-section:not(.hero) {
-    padding: 90px 7%;
-}
-
-section:not(.hero) > h2,
-section:not(.hero) > .card,
-section:not(.hero) > .skills {
-    max-width: 1000px;
-}
-
-section h2 {
-    font-size: 40px;
-    margin: 5px 0 25px;
-}
-
-.tag {
-    font-size: 13px;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
-
-.gray {
-    background: #eef0f5;
-}
-
-.skills {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.card h3 {
-    margin-bottom: 8px;
-}
-
-.card p {
-    color: #667085;
-}
-
-.center {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.contact {
-    text-decoration: none;
-    color: #111827;
-    display: block;
-}
-
-footer {
-    text-align: center;
-    padding: 25px;
-    background: #111827;
-    color: white;
-}
-
-@media (max-width: 750px) {
-
-    .nav-links {
-        display: none;
-    }
-
-    .hero {
-        grid-template-columns: 1fr;
-        padding: 70px 7%;
-    }
-
-    .skills {
-        grid-template-columns: 1fr;
-    }
-
-    section:not(.hero) {
-        padding: 65px 7%;
-    }
-}
