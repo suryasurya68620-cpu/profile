@@ -1,1 +1,352 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surya A | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <h2>Surya<span>.</span></h2>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+</header>
+
+<section id="home" class="hero">
+    <div>
+        <p>B.TECH INFORMATION TECHNOLOGY • 3RD YEAR</p>
+        <h1>Hi, I'm <span>Surya A</span></h1>
+
+        <p class="description">
+            An enthusiastic Information Technology student focused on
+            developing programming skills and gaining practical experience.
+        </p>
+
+        <a class="button" href="#contact">Contact Me</a>
+    </div>
+
+    <div class="profile">
+        <div class="avatar">SA</div>
+        <h2>Surya A</h2>
+        <p>Information Technology Student</p>
+        <p>🎓 3rd Year B.Tech</p>
+        <p>💻 C Programming</p>
+        <p>📍 Trichy, Tamil Nadu</p>
+    </div>
+</section>
+
+<section id="about">
+    <p class="tag">ABOUT ME</p>
+    <h2>About Me</h2>
+
+    <div class="card">
+        <p>
+            I am Surya A, a third-year B.Tech Information Technology student
+            at Dhanalakshmi Srinivasan University, Samayapuram, Trichy.
+        </p>
+
+        <p>
+            I am interested in strengthening my programming knowledge,
+            learning new technologies and developing practical skills
+            for my future career.
+        </p>
+    </div>
+</section>
+
+<section id="education" class="gray">
+    <p class="tag">EDUCATION</p>
+    <h2>Academic Journey</h2>
+
+    <div class="card">
+        <h3>B.Tech – Information Technology</h3>
+        <p>Dhanalakshmi Srinivasan University</p>
+        <p>Samayapuram, Trichy – 621 112</p>
+        <strong>Currently studying – 3rd Year</strong>
+    </div>
+</section>
+
+<section id="skills">
+    <p class="tag">SKILLS</p>
+    <h2>Technical Skills</h2>
+
+    <div class="skills">
+        <div class="card">
+            <h3>💻 C Programming</h3>
+            <p>Programming fundamentals and problem-solving basics.</p>
+        </div>
+
+        <div class="card">
+            <h3>⚙️ Programming Fundamentals</h3>
+            <p>Basic logical thinking and coding concepts.</p>
+        </div>
+
+        <div class="card">
+            <h3>🌐 English</h3>
+            <p>Communication and professional learning.</p>
+        </div>
+    </div>
+</section>
+
+<section id="projects" class="gray">
+    <p class="tag">PROJECTS</p>
+    <h2>Projects & Experience</h2>
+
+    <div class="card center">
+        <h3>Projects Coming Soon</h3>
+        <p>
+            Academic and personal projects can be added here
+            as you build them.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Internship Experience</h3>
+        <p>No internship experience listed yet.</p>
+    </div>
+</section>
+
+<section>
+    <p class="tag">CAREER GOAL</p>
+    <h2>Learning Today, Building Tomorrow.</h2>
+
+    <div class="card">
+        <p>
+            My goal is to continuously improve my technical skills,
+            gain practical exposure, contribute to real-world projects,
+            and prepare for a successful career in Information Technology.
+        </p>
+    </div>
+</section>
+
+<section id="contact">
+    <p class="tag">CONTACT</p>
+    <h2>Let's Connect</h2>
+
+    <div class="skills">
+        <a class="card contact" href="tel:8148577248">
+            📞 <strong>8148577248</strong>
+        </a>
+
+        <a class="card contact"
+           href="mailto:Suryasurya68620@gmail.com">
+            ✉️ <strong>Suryasurya68620@gmail.com</strong>
+        </a>
+    </div>
+</section>
+
+<footer>
+    © <span id="year"></span> Surya A
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+""",
+
+    "style.css": """* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f8fc;
+    color: #111827;
+    line-height: 1.7;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+nav {
+    width: 90%;
+    max-width: 1100px;
+    height: 70px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav h2 {
+    font-size: 28px;
+}
+
+nav h2 span,
+.tag,
+.hero span {
+    color: #5b5cf0;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #374151;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    color: #5b5cf0;
+}
+
+.hero {
+    min-height: 90vh;
+    padding: 90px 7%;
+    display: grid;
+    grid-template-columns: 1.4fr .6fr;
+    gap: 60px;
+    align-items: center;
+    background: linear-gradient(135deg, white, #eef0ff);
+}
+
+.hero h1 {
+    font-size: clamp(45px, 7vw, 80px);
+    line-height: 1.1;
+    margin: 15px 0;
+}
+
+.description {
+    max-width: 650px;
+    color: #667085;
+    font-size: 18px;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 13px 24px;
+    background: #5b5cf0;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.profile,
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 15px 40px rgba(0,0,0,.06);
+}
+
+.profile {
+    text-align: center;
+}
+
+.avatar {
+    width: 110px;
+    height: 110px;
+    margin: auto auto 20px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: #eef0ff;
+    color: #5b5cf0;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+section:not(.hero) {
+    padding: 90px 7%;
+}
+
+section:not(.hero) > h2,
+section:not(.hero) > .card,
+section:not(.hero) > .skills {
+    max-width: 1000px;
+}
+
+section h2 {
+    font-size: 40px;
+    margin: 5px 0 25px;
+}
+
+.tag {
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.gray {
+    background: #eef0f5;
+}
+
+.skills {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card h3 {
+    margin-bottom: 8px;
+}
+
+.card p {
+    color: #667085;
+}
+
+.center {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contact {
+    text-decoration: none;
+    color: #111827;
+    display: block;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #111827;
+    color: white;
+}
+
+@media (max-width: 750px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 70px 7%;
+    }
+
+    .skills {
+        grid-template-columns: 1fr;
+    }
+
+    section:not(.hero) {
+        padding: 65px 7%;
+    }
+}
